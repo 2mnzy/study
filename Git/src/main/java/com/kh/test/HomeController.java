@@ -42,7 +42,7 @@ public class HomeController {
 		Naverservice service = new Naverservice();
 		
 		String keyword = request.getParameter("keyword");
-		System.out.println("Å°¿öµå"+keyword);
+		System.out.println("í‚¤ì›Œë“œ"+keyword);
 		
 		mv.setViewName("home");
 		mv.addObject("list",service.searchBook(keyword, 20, 1));

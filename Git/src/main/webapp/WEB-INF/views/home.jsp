@@ -13,8 +13,14 @@ body {text-align:center;}
 #keyword{height: 30px;}
 div {text-align:center;}
 #table{
-	padding-left:580px;
+	padding-left:355px;
 	padding-top: 30px;
+}
+#thumbnail{
+	
+}
+#title:hover {
+	display:block;
 }
 </style>
 <body>
@@ -28,18 +34,23 @@ div {text-align:center;}
 <button id="btn1" onclick="btnaction();">제출</button>
 <br>
 <table id="table">
-		<tr>
+		<tr style="padding-bottom:20px;">
 		<th>제목</th>
 		<th>저자</th>
+		<th>이미지</th>
 		</tr>
 <c:forEach var="book" items="${list}">
 	
 		<tr>
-		<td>${book.title}</td>
+		<td id='title'>${book.title}</td>
 		<td>${book.author}</td>
+		<td>
+			<img id='thumbnail2' src="${book.image}" onmouseover="imageOn(this)" onmouseout="imageOut(this)"/>
+			<div id='up' style="position:absolute; width:30%; left:1550px; top:300px; display:none;">
+			<img id='thumbnail' src="${book.image}" />
+			</div>
+		</td>
 		</tr>
-		
-	
 </c:forEach>
 </table>
 </div>
@@ -55,6 +66,17 @@ function enterkey(){
 		btnaction();
    }
 }
+
+function imageOn(t){
+	$(t).next().css("display","block");
+	}
+	
+function imageOut(t){
+	$(t).next().css("display","none");
+	}
+
+
+
 </script>
 
 </html>
